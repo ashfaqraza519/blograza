@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Blog Raza",
   description: "A blog by Ashfaq Raza",
+  keywords: ["blog", "Ashfaq Raza", "technology", "programming"],
 };
 
 export default function RootLayout({
