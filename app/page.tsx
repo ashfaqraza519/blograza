@@ -1,9 +1,18 @@
 import Image from "next/image";
 import Script from "next/script";
+import Styles from "../styles/home.module.css";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <nav className="test w-full bg-white dark:bg-black"> 
+        <ul className="flex justify-center gap-6 p-4">
+          <li className="cursor-pointer m-4">Home</li>
+          <li className="cursor-pointer m-4">About</li>
+          <li className="cursor-pointer m-4"> Blogs</li>
+          <li className="cursor-pointer m-4">Contact</li>
+        </ul>
+      </nav>
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
           className="dark:invert"
@@ -17,9 +26,24 @@ export default function Home() {
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
             Blog Raza
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+          <p className="max-w-md text-lg leading-8">
             A blog by Ashfaq Raza
           </p>
+        </div>
+        <div className="blogs">
+          <h2 className="mb-4">Latest Blogs</h2>
+          <div className="blogItem mb-4">
+            <h3>How to learn blogging in 2026</h3>
+            <p>Learn how to start and grow your blog in the year 2026.</p>
+          </div>
+          <div className="blogItem mb-4">
+            <h3>How to learn blogging in 2026</h3>
+            <p>Learn how to start and grow your blog in the year 2026.</p>
+          </div>
+          <div className="blogItem mb-4">
+            <h3>How to learn blogging in 2026</h3>
+            <p>Learn how to start and grow your blog in the year 2026.</p>
+          </div>
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
