@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Script from "next/script";
+import Link from "next/link";
 import Styles from "../styles/home.module.css";
 
 export default function Home() {
@@ -7,10 +8,10 @@ export default function Home() {
     <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <nav className="test w-full bg-white dark:bg-black"> 
         <ul className="flex justify-center gap-6 p-4">
-          <li className="cursor-pointer m-4">Home</li>
-          <li className="cursor-pointer m-4">About</li>
-          <li className="cursor-pointer m-4"> Blogs</li>
-          <li className="cursor-pointer m-4">Contact</li>
+          <Link href="/"><li className="cursor-pointer m-4">Home</li></Link>
+          <Link href="/about"><li className="cursor-pointer m-4">About</li></Link>
+          <Link href="/blogs"><li className="cursor-pointer m-4"> Blogs</li></Link>
+          <Link href="/contact"><li className="cursor-pointer m-4">Contact</li></Link>
         </ul>
       </nav>
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
