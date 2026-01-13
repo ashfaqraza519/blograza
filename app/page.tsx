@@ -15,14 +15,6 @@ export default function Home() {
         </ul>
       </nav>
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
             Blog Raza
@@ -31,6 +23,14 @@ export default function Home() {
             A blog by Ashfaq Raza
           </p>
         </div>
+        <Image
+          className="dark:invert my-4"
+          src="/home.jpg"
+          alt="Next.js logo"
+          width={1000}
+          height={500}
+          priority
+        />
         <div className="blogs">
           <h2 className="mb-4">Latest Blogs</h2>
           <div className="blogItem mb-4">
