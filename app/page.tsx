@@ -1,19 +1,8 @@
 import Image from "next/image";
-import Script from "next/script";
-import Link from "next/link";
-import Styles from "../styles/home.module.css";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <nav className="test w-full bg-white dark:bg-black"> 
-        <ul className="flex justify-center gap-6 p-4">
-          <Link href="/"><li className="cursor-pointer m-4">Home</li></Link>
-          <Link href="/about"><li className="cursor-pointer m-4">About</li></Link>
-          <Link href="/blogs"><li className="cursor-pointer m-4"> Blogs</li></Link>
-          <Link href="/contact"><li className="cursor-pointer m-4">Contact</li></Link>
-        </ul>
-      </nav>
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
@@ -26,7 +15,7 @@ export default function Home() {
         <Image
           className="dark:invert my-4"
           src="/home.jpg"
-          alt="Next.js logo"
+          alt="Home Cover"
           width={1000}
           height={500}
           priority
