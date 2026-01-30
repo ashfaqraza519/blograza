@@ -1,27 +1,30 @@
-import { prisma } from "@/lib/prisma"
-import { notFound } from "next/navigation"
+import { prisma } from '@/lib/prisma';
+import BlogContent from './BlogContent';
 
-export default async function BlogPage({
-  params,
-}: {
-  params: { slug: string }
-}) {
-  // Fetch one blog by slug
-  const blog = await prisma.blog.findUnique({
-    where: { slug: params.slug },
-  })
+interface BlogPageProps {
+  params: Promise<{ slug: string }>;
+}
 
-  if (!blog) return notFound()
+export default async function BlogPage({ params }: BlogPageProps) {
+  const { slug } = await params;
+
+  if (!slug) return <p className="text-center mt-10 text-red-500">Invalid blog slug.</p>;
+
+  const blog = await prisma.blog.findUnique({ where: { slug } });
+
+  if (!blog) return <p className="text-center mt-10 text-red-500">Blog not found.</p>;
 
   return (
-    <section className="mx-auto max-w-5xl px-6 py-24">
-      <h1 className="text-3xl font-bold text-center text-zinc-900 dark:text-zinc-100">
-        {blog.title}
-      </h1>
+    <BlogContent
+      slug={blog.slug}
+      title={blog.title}
+      content={blog.content}
+      createdAt={blog.createdAt.toISOString()}
+    />
+  );
+}
 
-      <div className="mt-6 text-zinc-600 dark:text-zinc-400">
-        <p>{blog.content}</p>
-      </div>
-    </section>
-  )
+export async function generateStaticParams() {
+  const blogs = await prisma.blog.findMany();
+  return blogs.map((blog) => ({ slug: blog.slug }));
 }
