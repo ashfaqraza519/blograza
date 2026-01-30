@@ -1,27 +1,30 @@
 import { prisma } from '@/lib/prisma';
+import BlogContent from './BlogContent';
 
-export async function getServerSideProps({ params }: any) {
-  const blog = await prisma.blog.findUnique({
-    where: { slug: params.slug },
-  });
-
-  if (!blog) return { notFound: true };
-
-  return {
-    props: {
-      blog: {
-        ...blog,
-        createdAt: blog.createdAt.toISOString(),
-      },
-    },
-  };
+interface BlogPageProps {
+  params: Promise<{ slug: string }>;
 }
 
-export default function BlogPage({ blog }: any) {
+export default async function BlogPage({ params }: BlogPageProps) {
+  const { slug } = await params;
+
+  if (!slug) return <p className="text-center mt-10 text-red-500">Invalid blog slug.</p>;
+
+  const blog = await prisma.blog.findUnique({ where: { slug } });
+
+  if (!blog) return <p className="text-center mt-10 text-red-500">Blog not found.</p>;
+
   return (
-    <div>
-      <h1>{blog.title}</h1>
-      <p>{blog.content}</p>
-    </div>
+    <BlogContent
+      slug={blog.slug}
+      title={blog.title}
+      content={blog.content}
+      createdAt={blog.createdAt.toISOString()}
+    />
   );
+}
+
+export async function generateStaticParams() {
+  const blogs = await prisma.blog.findMany();
+  return blogs.map((blog) => ({ slug: blog.slug }));
 }

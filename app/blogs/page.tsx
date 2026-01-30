@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma';
+import { BlogCard } from './BlogCard';
 import type { Blog } from '@prisma/client';
 
 export default async function BlogsPage() {
@@ -7,15 +8,16 @@ export default async function BlogsPage() {
   });
 
   return (
-    <div>
-      <h1>Blogs</h1>
+    <div className="max-w-7xl mx-auto px-6 py-16">
+      <h1 className="text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">
+        Latest Blogs
+      </h1>
 
-      {blogs.map((blog: Blog) => (
-        <div key={blog.id}>
-          <h2>{blog.title}</h2>
-          <p>{blog.content}</p>
-        </div>
-      ))}
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {blogs.map((blog: Blog, index) => (
+          <BlogCard key={blog.id} blog={blog} index={index} />
+        ))}
+      </div>
     </div>
   );
 }
