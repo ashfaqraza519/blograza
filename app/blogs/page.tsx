@@ -9,7 +9,7 @@ export default async function BlogsPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
-      <h1 className="text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">
+      <h1 className="text-5xl font-bold mb-12 text-center text-gray-900 dark:text-white">
         Latest Blogs
       </h1>
 
