@@ -50,6 +50,14 @@ export default function Navbar() {
                 </span>
               )}
 
+              {/* My Account Link */}
+              <Link
+                href="/dashboard"
+                className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                My Account
+              </Link>
+
               {/* Logout */}
               <button
                 onClick={() => signOut()}
