@@ -28,7 +28,7 @@ export default function Navbar() {
           {status === "loading" ? null : !session ? (
             <button
               onClick={() => signIn("google")}
-              className="rounded-full bg-black text-white px-4 py-2 text-sm dark:bg-white dark:text-black"
+              className="rounded-full cursor-pointer bg-black text-white px-4 py-2 text-sm dark:bg-white dark:text-black"
             >
               Sign in
             </button>
@@ -53,7 +53,7 @@ export default function Navbar() {
               {/* Logout */}
               <button
                 onClick={() => signOut()}
-                className="text-sm text-gray-600 hover:text-black dark:text-gray-300"
+                className="text-sm text-gray-600 cursor-pointer dark:text-gray-300"
               >
                 Logout
               </button>

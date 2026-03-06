@@ -1,8 +1,11 @@
-import { auth } from "@/lib/auth";
+
+import React from "react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
 import Image from "next/image";
 
 export default async function DashboardPage() {
-  const session = await auth();
+  const session = await getServerSession(authOptions);
 
   if (!session) {
     return <p>You are not logged in</p>;
