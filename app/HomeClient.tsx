@@ -3,15 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-
-
 import { BlogCard } from './blogs/BlogCard';
+import type { Blog } from '@prisma/client';
 
+interface HomeClientProps {
+  blogs: Blog[];
+}
 
-export default function Home() {
-
-
+export default function HomeClient({ blogs }: HomeClientProps) {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-black font-sans">
       <main className="mx-auto max-w-5xl px-6 py-24">
@@ -59,6 +58,27 @@ export default function Home() {
             priority
           />
         </motion.div>
+        {/* Blog Section */}
+        <section>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-10 text-3xl font-bold text-zinc-900 dark:text-zinc-100"
+          >
+            Latest Blogs
+          </motion.h2>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {blogs.length === 0 ? (
+              <p className="text-zinc-600 dark:text-zinc-400">No blogs found.</p>
+            ) : (
+              blogs.map((blog, index) => (
+                <BlogCard key={blog.id} blog={blog} index={index} />
+              ))
+            )}
+          </div>
+        </section>
       </main>
     </div>
   );
