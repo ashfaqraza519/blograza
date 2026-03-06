@@ -30,13 +30,13 @@ export default function Home() {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/blogs"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-black px-6 text-white transition hover:bg-zinc-800 dark:bg-white dark:text-black"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-black px-6 text-white transition dark:bg-white dark:text-black"
             >
               Explore Blogs
             </Link>
             <Link
               href="/contact"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-zinc-300 px-6 text-zinc-900 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-zinc-300 px-6 text-zinc-900 transition dark:border-zinc-700 dark:text-zinc-100"
             >
               Contact Me
             </Link>
